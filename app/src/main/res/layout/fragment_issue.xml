@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
     tools:context=".IssueFragment">
 
     <EditText
         android:id="@+id/editTextIssueType"
-        android:layout_width="338dp"
+        android:layout_width="0dp"
         android:layout_height="51dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/issue_type"
@@ -24,8 +25,9 @@
 
     <EditText
         android:id="@+id/editTextIssueSolution"
-        android:layout_width="338dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/issue_solution"
         android:inputType="textPersonName"
@@ -34,12 +36,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextIssueType"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextIssueType" />
 
     <EditText
         android:id="@+id/editTextIssueObservations"
-        android:layout_width="341dp"
+        android:layout_width="0dp"
         android:layout_height="210dp"
         android:autofillHints=""
         android:ems="10"
