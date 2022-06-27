@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">App Informatica</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="btn_next">Siguiente</string>
+    <string name="shop_direction">
+        SEBASTIÁN HERRERO SÁNCHEZ\n
+        PASEO DE SAN ANTONIO Nº17\n
+        DNI: 70891907L\n
+        TELÉFONO: 923625880
+    </string>
+    <string name="bill_title">ALBARÁN DE REPARACIÓN</string>
+    <string name="ae_number">Nº AE</string>
+    <string name="bill_enter_date">FECHA DE ENTRADA DEL DISPOSITIVO (mes/dia/año)</string>
+
+    <string name="client_data">DATOS DEL CLIENTE</string>
+    <string name="client_name">NOMBRE CLIENTE</string>
+    <string name="client_phone">TELÉFONO</string>
+    <string name="client_address">DIRECCIÓN</string>
+    <string name="client_identification_number">DNI</string>
+
+    <string name="device">DISPOSITIVO</string>
+    <string name="device_accessories">DISPOSITIVO Y ACCESORIOS</string>
+    <string name="device_brand_model">MARCA Y MODELO</string>
+    <string name="device_serial_imei">NÚMERO DE SERIE-IMEI</string>
+
+    <string name="issue_title">TIPOLOGÍA DE LA INCIDENCIA</string>
+    <string name="issue_type">TIPO DE INCIDENCIA</string>
+    <string name="issue_solution">SOLUCIÓN INCIDENCIA</string>
+    <string name="issue_observations">OBSERVACIONES</string>
+    <string name="issue_photos">FOTOGRAFÍAS DISPOSITIVO</string>
+
+    <string name="budget_title">ACEPTACIÓN DEL PRESUPUESTO</string>
+    <string name="budget_quantity">IMPORTE DE LA REPARACIÓN</string>
+    <string name="budget_acceptation">PRE-ACEPTA PRESUPUESTO</string>
+    <string name="client_signature">Firma Cliente</string>
+</resources>
