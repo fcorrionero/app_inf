@@ -48,5 +48,14 @@
         android:id="@+id/issueFragment"
         android:name="com.fcorrionero.appinformatica.ui.newClient.IssueFragment"
         android:label="@string/issue_title"
-        tools:layout="@layout/fragment_issue" />
+        tools:layout="@layout/fragment_issue" >
+        <action
+            android:id="@+id/action_issueFragment_to_budgetFragment"
+            app:destination="@id/budgetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/budgetFragment"
+        android:name="com.fcorrionero.appinformatica.ui.newClient.BudgetFragment"
+        android:label="@string/budget_title"
+        tools:layout="@layout/fragment_budget" />
 </navigation>

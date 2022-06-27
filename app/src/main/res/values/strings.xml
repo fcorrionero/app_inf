@@ -45,4 +45,6 @@
     <string name="budget_quantity">IMPORTE DE LA REPARACIÓN</string>
     <string name="budget_acceptation">PRE-ACEPTA PRESUPUESTO</string>
     <string name="client_signature">Firma Cliente</string>
+
+    <string name="btn_save">Guardar</string>
 </resources>

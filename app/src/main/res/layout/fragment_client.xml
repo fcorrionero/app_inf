@@ -56,18 +56,6 @@
         android:hint="@string/client_identification_number"
         android:inputType="textPersonName" />
 
-    <com.github.gcacace.signaturepad.views.SignaturePad
-        android:id="@+id/signature_pad"
-        app:clearOnDoubleClick="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDNI"
-        app:penColor="@android:color/black"
-        android:layout_width="311dp"
-        android:layout_height="233dp"
-        android:layout_marginTop="56dp"
-        android:background="#EFFAFB" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnClientNext"

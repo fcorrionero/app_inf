@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fcorrionero.appinformatica.R
 import com.fcorrionero.appinformatica.databinding.FragmentClientBinding
-import com.fcorrionero.appinformatica.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,7 +46,7 @@ class ClientFragment : Fragment() {
         _binding = FragmentClientBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.btnClientNext.setOnClickListener{
+        binding.btnClientNext.setOnClickListener {
             findNavController().navigate(R.id.action_clientFragment_to_deviceFragment)
         }
         return root

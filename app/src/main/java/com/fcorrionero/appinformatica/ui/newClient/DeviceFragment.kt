@@ -1,13 +1,12 @@
 package com.fcorrionero.appinformatica.ui.newClient
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fcorrionero.appinformatica.R
-import com.fcorrionero.appinformatica.databinding.FragmentClientBinding
 import com.fcorrionero.appinformatica.databinding.FragmentDeviceBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,11 +43,10 @@ class DeviceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        // Inflate the layout for this fragment
         _binding = FragmentDeviceBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.btnDeviceNext.setOnClickListener{
+        binding.btnDeviceNext.setOnClickListener {
             findNavController().navigate(R.id.action_deviceFragment_to_issueFragment)
         }
         return root
