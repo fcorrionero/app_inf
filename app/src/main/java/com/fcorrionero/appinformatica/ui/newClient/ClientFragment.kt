@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fcorrionero.appinformatica.R
@@ -30,6 +32,8 @@ class ClientFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var bundle: Bundle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -47,7 +51,18 @@ class ClientFragment : Fragment() {
         val root: View = binding.root
 
         binding.btnClientNext.setOnClickListener {
-            findNavController().navigate(R.id.action_clientFragment_to_deviceFragment)
+            val view = this@ClientFragment.view
+            val textName = view?.findViewById<EditText>(R.id.textName)?.text
+            val phone = view?.findViewById<EditText>(R.id.editTextPhone)?.text
+            val dni = view?.findViewById<EditText>(R.id.editTextDNI)?.text
+            val address = view?.findViewById<EditText>(R.id.editTextAddress)?.text
+            bundle = bundleOf(
+                "name" to textName,
+                "phone" to phone,
+                "dni" to dni,
+                "address" to address,
+            )
+            findNavController().navigate(R.id.action_clientFragment_to_deviceFragment, bundle)
         }
         return root
     }

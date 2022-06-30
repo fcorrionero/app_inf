@@ -46,6 +46,7 @@ class DeviceFragment : Fragment() {
         _binding = FragmentDeviceBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val name = arguments?.get("name")
         binding.btnDeviceNext.setOnClickListener {
             findNavController().navigate(R.id.action_deviceFragment_to_issueFragment)
         }
