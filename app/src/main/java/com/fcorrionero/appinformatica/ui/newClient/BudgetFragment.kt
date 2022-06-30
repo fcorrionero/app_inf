@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.room.Room
 import com.fcorrionero.appinformatica.R
@@ -59,7 +60,7 @@ class BudgetFragment : Fragment() {
         val budgetQuantity =
             this@BudgetFragment.view?.findViewById<EditText>(R.id.editTextBudgetQuantity)?.text.toString()
         val budgetAcceptation =
-            this@BudgetFragment.view?.findViewById<EditText>(R.id.checkBoxBudgetAcceptation)?.text.toString()
+            this@BudgetFragment.view?.findViewById<CheckBox>(R.id.checkBoxBudgetAcceptation)?.isChecked
 
         val db = Room.databaseBuilder(
             this@BudgetFragment.context!!,
@@ -82,7 +83,7 @@ class BudgetFragment : Fragment() {
             arg?.get("issueSolution").toString(),
             arg?.get("issueObservations").toString(),
             budgetQuantity.toInt(),
-            budgetAcceptation.toBoolean(),
+            budgetAcceptation,
             date,
             date
         )
