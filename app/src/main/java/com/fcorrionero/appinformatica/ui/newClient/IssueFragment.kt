@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fcorrionero.appinformatica.R
@@ -41,12 +42,19 @@ class IssueFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentIssueBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.btnIssueNext.setOnClickListener {
-            findNavController().navigate(R.id.action_issueFragment_to_budgetFragment)
+            val view = this@IssueFragment.view
+            val issueType = view?.findViewById<EditText>(R.id.editTextIssueType)?.text.toString()
+            val issueSolution = view?.findViewById<EditText>(R.id.editTextIssueSolution)?.text.toString()
+            val issueObservations = view?.findViewById<EditText>(R.id.editTextIssueObservations)?.text.toString()
+            this@IssueFragment.arguments?.putString("issueType",issueType)
+            this@IssueFragment.arguments?.putString("issueSolution",issueSolution)
+            this@IssueFragment.arguments?.putString("issueObservations",issueObservations)
+            findNavController().navigate(R.id.action_issueFragment_to_budgetFragment, this@IssueFragment.arguments)
         }
         return root
     }

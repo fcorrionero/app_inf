@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fcorrionero.appinformatica.R
@@ -41,14 +42,20 @@ class DeviceFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentDeviceBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val name = arguments?.get("name")
         binding.btnDeviceNext.setOnClickListener {
-            findNavController().navigate(R.id.action_deviceFragment_to_issueFragment)
+            val view = this@DeviceFragment.view
+            val deviceBrandModel = view?.findViewById<EditText>(R.id.editTextDeviceBrandModel)?.text.toString()
+            val deviceAccessories = view?.findViewById<EditText>(R.id.editTextTextDeviceAccessories)?.text.toString()
+            val deviceSerialImei = view?.findViewById<EditText>(R.id.editTextDeviceSerialImei)?.text.toString()
+            this@DeviceFragment.arguments?.putString("deviceBrandModel",deviceBrandModel)
+            this@DeviceFragment.arguments?.putString("deviceAccessories",deviceAccessories)
+            this@DeviceFragment.arguments?.putString("deviceSerialImei", deviceSerialImei)
+            findNavController().navigate(R.id.action_deviceFragment_to_issueFragment, this@DeviceFragment.arguments)
         }
         return root
     }

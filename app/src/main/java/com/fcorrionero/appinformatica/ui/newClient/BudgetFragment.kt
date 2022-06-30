@@ -5,7 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.room.Room
 import com.fcorrionero.appinformatica.R
+import com.fcorrionero.appinformatica.databinding.FragmentBudgetBinding
+import com.fcorrionero.appinformatica.domain.Device
+import com.fcorrionero.appinformatica.infrastructure.persistence.DeviceDatabase
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +28,9 @@ class BudgetFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var _binding: FragmentBudgetBinding ? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,9 +42,45 @@ class BudgetFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_budget, container, false)
+
+        _binding =  FragmentBudgetBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        binding.btnSaveDevice.setOnClickListener {
+            val budgetQuantity = this@BudgetFragment.view?.findViewById<EditText>(R.id.editTextBudgetQuantity)?.text.toString()
+            val budgetAcceptation = this@BudgetFragment.view?.findViewById<EditText>(R.id.checkBoxBudgetAcceptation)?.text.toString()
+
+            val db = Room.databaseBuilder(
+                this@BudgetFragment.context!!,
+                DeviceDatabase::class.java, "device-db"
+            ).build()
+
+            val arg = this@BudgetFragment.arguments
+            val id = UUID.randomUUID()
+            val date = Date()
+            val device = Device(
+                id,
+                arg?.get("name").toString(),
+                arg?.get("phone").toString(),
+                arg?.get("dni").toString(),
+                arg?.get("address").toString(),
+                arg?.get("deviceBrandModel").toString(),
+                arg?.get("deviceAccessories").toString(),
+                arg?.get("deviceSerialImei").toString(),
+                arg?.get("issueType").toString(),
+                arg?.get("issueSolution").toString(),
+                arg?.get("issueObservations").toString(),
+                budgetQuantity.toInt(),
+                budgetAcceptation.toBoolean(),
+                date,
+                date
+            )
+            db.deviceDao().insertAll(device)
+        }
+
+        return root
     }
 
     companion object {

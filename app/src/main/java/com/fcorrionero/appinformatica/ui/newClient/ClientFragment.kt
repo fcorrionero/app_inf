@@ -45,17 +45,17 @@ class ClientFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentClientBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.btnClientNext.setOnClickListener {
             val view = this@ClientFragment.view
-            val textName = view?.findViewById<EditText>(R.id.textName)?.text
-            val phone = view?.findViewById<EditText>(R.id.editTextPhone)?.text
-            val dni = view?.findViewById<EditText>(R.id.editTextDNI)?.text
-            val address = view?.findViewById<EditText>(R.id.editTextAddress)?.text
+            val textName = view?.findViewById<EditText>(R.id.textName)?.text.toString()
+            val phone = view?.findViewById<EditText>(R.id.editTextPhone)?.text.toString()
+            val dni = view?.findViewById<EditText>(R.id.editTextDNI)?.text.toString()
+            val address = view?.findViewById<EditText>(R.id.editTextAddress)?.text.toString()
             bundle = bundleOf(
                 "name" to textName,
                 "phone" to phone,
