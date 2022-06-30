@@ -49,38 +49,44 @@ class BudgetFragment : Fragment() {
         val root: View = binding.root
 
         binding.btnSaveDevice.setOnClickListener {
-            val budgetQuantity = this@BudgetFragment.view?.findViewById<EditText>(R.id.editTextBudgetQuantity)?.text.toString()
-            val budgetAcceptation = this@BudgetFragment.view?.findViewById<EditText>(R.id.checkBoxBudgetAcceptation)?.text.toString()
-
-            val db = Room.databaseBuilder(
-                this@BudgetFragment.context!!,
-                DeviceDatabase::class.java, "device-db"
-            ).build()
-
-            val arg = this@BudgetFragment.arguments
-            val id = UUID.randomUUID()
-            val date = Date()
-            val device = Device(
-                id,
-                arg?.get("name").toString(),
-                arg?.get("phone").toString(),
-                arg?.get("dni").toString(),
-                arg?.get("address").toString(),
-                arg?.get("deviceBrandModel").toString(),
-                arg?.get("deviceAccessories").toString(),
-                arg?.get("deviceSerialImei").toString(),
-                arg?.get("issueType").toString(),
-                arg?.get("issueSolution").toString(),
-                arg?.get("issueObservations").toString(),
-                budgetQuantity.toInt(),
-                budgetAcceptation.toBoolean(),
-                date,
-                date
-            )
-            db.deviceDao().insertAll(device)
+            saveDevice()
         }
 
         return root
+    }
+
+    private fun saveDevice() {
+        val budgetQuantity =
+            this@BudgetFragment.view?.findViewById<EditText>(R.id.editTextBudgetQuantity)?.text.toString()
+        val budgetAcceptation =
+            this@BudgetFragment.view?.findViewById<EditText>(R.id.checkBoxBudgetAcceptation)?.text.toString()
+
+        val db = Room.databaseBuilder(
+            this@BudgetFragment.context!!,
+            DeviceDatabase::class.java, "device-db"
+        ).build()
+
+        val arg = this@BudgetFragment.arguments
+        val id = UUID.randomUUID()
+        val date = Date()
+        val device = Device(
+            id,
+            arg?.get("name").toString(),
+            arg?.get("phone").toString(),
+            arg?.get("dni").toString(),
+            arg?.get("address").toString(),
+            arg?.get("deviceBrandModel").toString(),
+            arg?.get("deviceAccessories").toString(),
+            arg?.get("deviceSerialImei").toString(),
+            arg?.get("issueType").toString(),
+            arg?.get("issueSolution").toString(),
+            arg?.get("issueObservations").toString(),
+            budgetQuantity.toInt(),
+            budgetAcceptation.toBoolean(),
+            date,
+            date
+        )
+        db.deviceDao().insertAll(device)
     }
 
     companion object {
