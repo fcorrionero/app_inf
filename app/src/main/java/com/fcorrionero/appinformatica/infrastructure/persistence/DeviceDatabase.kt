@@ -8,6 +8,10 @@ import com.fcorrionero.appinformatica.domain.DeviceRepository
 @Database(entities = [Device::class], version = 1)
 abstract class DeviceDatabase: RoomDatabase() {
 
+    companion object {
+        const val DATABASE_NAME = "device-db"
+    }
+
     abstract fun deviceDao(): DeviceRepository
 
 }
